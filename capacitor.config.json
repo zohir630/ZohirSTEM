@@ -1,0 +1,8 @@
+{
+  "appId": "com.qlik.m3ecanvas",
+  "appName": "M3E Canvas",
+  "webDir": "out",
+  "android": {
+    "allowMixedContent": false
+  }
+}
