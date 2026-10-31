@@ -1,6 +1,6 @@
 {
-  "appId": "com.qlik.m3ecanvas",
-  "appName": "M3E Canvas",
+  "appId": "com.zohir.canvas",
+  "appName": "Zohir Canvas",
   "webDir": "out",
   "android": {
     "allowMixedContent": false

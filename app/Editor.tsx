@@ -890,6 +890,17 @@ export default function Editor({ initialLang, onReady }: { initialLang: Lang; on
     return () => mq.removeEventListener("change", apply);
   }, [forceDesktop]);
 
+  /* the installed app (and an installed web app) opens sideways, like a computer screen */
+  useEffect(() => {
+    const installed =
+      "Capacitor" in window || window.matchMedia("(display-mode: standalone)").matches;
+    if (!installed || !isPhoneScreen()) return;
+    const o = screen.orientation as ScreenOrientation & { lock?: (o: string) => Promise<void> };
+    try {
+      o.lock?.("landscape")?.catch(() => {});
+    } catch {}
+  }, []);
+
   /* the full editor on a phone: lay the page out at a desktop width and let the browser scale it
      down to the screen, which is what "desktop site" does; works inside an installed app too */
   useEffect(() => {

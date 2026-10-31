@@ -1,17 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { BRAND } from "@/lib/brand";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "https://lnkiai.github.io"),
-  title: "M3E Canvas",
-  applicationName: "M3E Canvas",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_ORIGIN ?? BRAND.siteOrigin),
+  title: BRAND.appName,
+  applicationName: BRAND.appName,
   alternates: { canonical: `${BASE}/` },
   description:
     "Sketch Material 3 Expressive screens in the browser and turn them into vibe-coding prompts. / Material 3 Expressive の画面をブラウザで組み立てて、そのままプロンプトに。",
   openGraph: {
-    title: "M3E Canvas",
+    title: BRAND.appName,
     description: "Design Material 3 Expressive screens, link them, preview them, and copy a prompt for your AI coding tool.",
     images: [`${BASE}/og.png`],
     type: "website",

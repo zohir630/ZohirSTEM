@@ -10,7 +10,10 @@ export function readViewPref(): ViewPref {
     const q = new URLSearchParams(window.location.search).get("view");
     if (q === "desktop") localStorage.setItem(KEY, "desktop");
     else if (q === "mobile") localStorage.setItem(KEY, "auto");
-    return localStorage.getItem(KEY) === "desktop" ? "desktop" : "auto";
+    const saved = localStorage.getItem(KEY);
+    if (saved === "desktop" || saved === "auto") return saved;
+    // the installed Android app opens the full editor unless the person went back to the phone view
+    return "Capacitor" in window ? "desktop" : "auto";
   } catch {
     return "auto";
   }

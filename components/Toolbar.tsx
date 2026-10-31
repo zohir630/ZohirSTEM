@@ -7,10 +7,11 @@ import { ShareButton } from "./ShareMenu";
 import { Icon } from "./M3Node";
 import { Popover } from "./Menus";
 import { t, useLang } from "@/lib/i18n";
+import { BRAND } from "@/lib/brand";
 
 export type Mode = "select" | "hand";
 
-const REPO_URL = "https://github.com/lnkiai/m3e-canvas";
+const REPO_URL = BRAND.repoUrl;
 
 export function GitHubLink({ p, size = 40 }: { p: Palette; size?: number }) {
   return (
